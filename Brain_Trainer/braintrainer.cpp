@@ -5,7 +5,7 @@
 #include<string.h>
 
 void show_record();
-bool new_question(int num);
+bool new_question(int num, int level);
 void reset_score();
 void help();
 void edit_score(float , char []);
@@ -82,8 +82,8 @@ int main() {
     	home:
     		system("cls");
    			count = 0;
-    		for (int i=0; i<4; i++) {
-    			if (new_question(30)) {
+    		for (int i=0; i<5; i++) {
+    			if (new_question(30,1)) {
     				count++;
 				}
 				getch();
@@ -105,9 +105,9 @@ int main() {
 				goto game;
 		game:
 			countr=0;
-   			for(int i=1;i<=10;i++) {
+   			for(int i=1;i<10;i++) {
 				system("cls");
-				if (new_question(60)) {
+				if (new_question(60,2)) {
     				countr++;
     				getch();
 				}
@@ -121,7 +121,8 @@ int main() {
 			score=(float)countr*100000;
 			if(score>0.00 && score<1000000) {
 				printf("\n\n\t\t**************** CONGRATULATION *****************");
-	   			printf("\n\t You won $%.2f",score);goto go;
+	   			printf("\n\t You won $%.2f",score);
+				goto go;
 			}
 			else if(score==1000000.00) {
 			    printf("\n\n\n \t\t**************** CONGRATULATION ****************");
@@ -161,25 +162,33 @@ void show_record() {
 	getch();
 }
 
-bool new_question(int num) {
+bool new_question(int num, int level) {
+	system("cls");
+   	printf("Level %d: ",level);
 	bool mapp[num*2+1] = {false};
 	int a,b,ans,user,ansPos;
-	system("cls");
+	int range, lower=1;
     a = (rand() % (num+1));
     b = (rand() % (num+1));
-    printf("q> %d + %d",a,b);
     ans = a + b;
+	if (level == 1)
+		range = 2*num+1;
+	else{
+		range = 10;
+		lower = ans-10;
+	}
+	printf("\n%d %d",range, lower);
     mapp[ans] = true;
     ansPos = (rand() % (4));
     for(int j=0; j<4; j++){
-    	int wrong = (rand() % (2*num+1));
+    	int wrong = (rand() % range)+lower;
     	while (mapp[wrong] != false)
-    		wrong = (rand() % (num+1));
+    		wrong = (rand() % range)+lower;
     	mapp[wrong] = true;
     	if(j == ansPos)
-    		printf("\n%d. %d",j+1,ans);
+    		printf("\t\n%d. %d",j+1,ans);
     	else if(wrong != ans)
-   			printf("\n%d. %d",j+1,wrong);
+   			printf("\t\n%d. %d",j+1,wrong);
 	}
 	printf("\nAns: ");
 	scanf("%d",&user);
@@ -197,10 +206,10 @@ void reset_score() {
     float sc;
 	char nm[20];
 	FILE *f;
-	f=fopen("score.txt","r+");
-	fscanf(f,"%s%f",&nm,&sc);
-	sc=0;
-	fprintf(f,"%s,%.2f",nm,sc);
+	f=fopen("score.txt","wb");
+	//fscanf(f,"%s%f",&nm,&sc);
+	//sc=0;
+	//fprintf(f,"%s,%.2f",nm,sc);
     fclose(f);
 }
 
