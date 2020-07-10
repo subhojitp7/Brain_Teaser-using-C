@@ -162,17 +162,20 @@ void show_record() {
 }
 
 bool new_question(int num) {
+	bool mapp[num*2+1] = {false};
 	int a,b,ans,user,ansPos;
 	system("cls");
     a = (rand() % (num+1));
     b = (rand() % (num+1));
-    printf("Q> %d + %d",a,b);
+    printf("q> %d + %d",a,b);
     ans = a + b;
+    mapp[ans] = true;
     ansPos = (rand() % (4));
     for(int j=0; j<4; j++){
-    	int wrong = (rand() % (num+1));
-    	while (wrong == ans)
+    	int wrong = (rand() % (2*num+1));
+    	while (mapp[wrong] != false)
     		wrong = (rand() % (num+1));
+    	mapp[wrong] = true;
     	if(j == ansPos)
     		printf("\n%d. %d",j+1,ans);
     	else if(wrong != ans)
