@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<ctype.h>
+#include<windows.h>
 #include<stdlib.h>
 #include<string.h>
 
@@ -46,8 +47,10 @@ int main() {
 		}
 		else if (choice=='R'){
 			reset_score();
-			getch();
-			goto mainhome;}
+			printf("\n\n\n\n\t\t\t***Score reset successfull***");
+			Sleep(2000);
+			goto mainhome;
+		}
 		else if (choice=='Q')
 			exit(1);
     	else if(choice=='S') {
@@ -214,9 +217,9 @@ void reset_score() {
 
 void help() {
 	system("cls");
-    printf("\n\n                              HELP");
-    printf("\n -------------------------------------------------------------------------");
-    printf("\n ........................C program Brain Teaser Game......................");
+    printf("\n\n                                    HELP");
+    printf("\n -----------------------------------------------------------------------------------");
+    printf("\n .............................C program Brain Teaser Game...........................");
     printf("\n >> There are two rounds in the game, WARMUP ROUND & CHALLANGE ROUND");
     printf("\n >> In warmup round you will be asked a total of 5 questions to test your general");
     printf("\n    knowledge. You will be eligible to play the game if you can give atleast 3");
@@ -231,6 +234,7 @@ void help() {
 
 	printf("\n\n\t*********************BEST OF LUCK*********************************");
 	printf("\n\n\t***C PROGRAM BRAIN TEASER GAME is developed by CODE WITH C TEAM***");
+	printf("\n\n\t****************Press ENTER to continue***************************\n");
 }
 
 void edit_score(float score, char plnm[20]) {
