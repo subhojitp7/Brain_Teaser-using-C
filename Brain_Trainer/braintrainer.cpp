@@ -209,9 +209,6 @@ void reset_score() {
 	char nm[20];
 	FILE *f;
 	f=fopen("score.txt","wb");
-	//fscanf(f,"%s%f",&nm,&sc);
-	//sc=0;
-	//fprintf(f,"%s,%.2f",nm,sc);
     fclose(f);
 }
 
