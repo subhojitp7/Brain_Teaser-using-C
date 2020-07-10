@@ -19,9 +19,9 @@ int main() {
     	system("cls");
     	printf("\t\t\tC PROGRAM BRAIN TEASER GAME\n");
     	printf("\n\t\t________________________________________");
-    	printf("\n\t\t\t   WELCOME ");
-    	printf("\n\t\t\t      to ");
-    	printf("\n\t\t\t   THE GAME ");
+    	printf("\n\t\t\t        WELCOME ");
+    	printf("\n\t\t\t           to ");
+    	printf("\n\t\t\t        THE GAME ");
     	printf("\n\t\t________________________________________");
     	printf("\n\t\t________________________________________");
     	printf("\n\t\t   BECOME A MILLIONAIRE!!!!!!!!!!!    ") ;
@@ -33,6 +33,7 @@ int main() {
     	printf("\n\t\t > press H for help            ");
     	printf("\n\t\t > press Q to quit             ");
     	printf("\n\t\t________________________________________\n\n");
+    	printf("Enter: ");
     	choice = toupper(getch());
     	if (choice=='V') {
 			show_record();
@@ -51,7 +52,7 @@ int main() {
 			exit(1);
     	else if(choice=='S') {
     		system("cls");
-    		printf("\n\n\n\n\n\n\n\n\n\n\t\t\tResister your name:");
+    		printf("\n\n\n\n\n\n\n\n\n\n\t\t\tResister your name: ");
     		gets(playername);
 		    system("cls");
     		printf("\n ------------------  Welcome %s to C Program Quiz Game --------------------------",playername);
@@ -71,6 +72,7 @@ int main() {
     		printf("\n\n\t!!!!!!!!!!!!! ALL THE BEST !!!!!!!!!!!!!");
     		printf("\n\n\n Press Y  to start the game!\n");
     		printf("\n Press any other key to return to the main menu!");
+    		printf("\nEnter: ");
     		if (toupper(getch())=='Y') {
 			    goto home;
         	}
