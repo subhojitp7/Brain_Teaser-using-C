@@ -90,7 +90,7 @@ int main() {
 				}
 				getch();
 			}
-		if(count>=2) {
+		if(count>=3) {
 			goto test;
 		}
 		else {
@@ -218,13 +218,13 @@ void help() {
     printf("\n -------------------------------------------------------------------------");
     printf("\n ........................C program Brain Teaser Game......................");
     printf("\n >> There are two rounds in the game, WARMUP ROUND & CHALLANGE ROUND");
-    printf("\n >> In warmup round you will be asked a total of 3 questions to test your general");
-    printf("\n    knowledge. You will be eligible to play the game if you can give atleast 2");
+    printf("\n >> In warmup round you will be asked a total of 5 questions to test your general");
+    printf("\n    knowledge. You will be eligible to play the game if you can give atleast 3");
     printf("\n    right answers otherwise you can't play the Game...........");
     printf("\n >> Your game starts with the CHALLANGE ROUND. In this round you will be asked");
     printf("\n    total 10 questions each right answer will be awarded $100,000.");
     printf("\n    By this way you can win upto ONE MILLION cash prize in USD...............");
-    printf("\n >> You will be given 4 options and you have to press A, B ,C or D for the");
+    printf("\n >> You will be given 4 options and you have to press 1, 2, 3 or 4 for the");
     printf("\n    right option");
     printf("\n >> You will be asked questions continuously if you keep giving the right answers.");
     printf("\n >> No negative marking for wrong answers");
